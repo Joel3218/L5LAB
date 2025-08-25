@@ -1,0 +1,8 @@
+---
+- name: Run tasks
+  hosts: cvp1
+  tasks:
+    - name: Run pending tasks
+      arista.cvp.cv_task_v3:
+        tasks: [62, 63, 64, 65]
+  

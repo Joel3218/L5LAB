@@ -1,0 +1,14 @@
+---
+- name: Update NTP on spine4
+  hosts: spine4
+  tasks:
+    - name: Generate NTP configuration on spine4
+      ansible.builtin.import_role:
+        name: arista.avd.eos_cli_config_gen
+      vars:
+        ntp:
+          servers:
+            - name: 192.168.0.2
+              iburst: true
+              local_interface: Management0
+              vrf: MGMT

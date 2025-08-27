@@ -5,6 +5,7 @@
 - [Management](#management)
   - [Management Interfaces](#management-interfaces)
   - [DNS Domain](#dns-domain)
+  - [NTP](#ntp)
   - [Management API HTTP](#management-api-http)
 - [Spanning Tree](#spanning-tree)
   - [Spanning Tree Summary](#spanning-tree-summary)
@@ -68,6 +69,23 @@ interface Management0
 ```eos
 dns domain atd.lab
 !
+```
+
+### NTP
+
+#### NTP Summary
+
+##### NTP Servers
+
+| Server | VRF | Preferred | Burst | iBurst | Version | Min Poll | Max Poll | Local-interface | Key |
+| ------ | --- | --------- | ----- | ------ | ------- | -------- | -------- | --------------- | --- |
+| 192.168.0.2 | MGMT | - | - | True | - | - | - | Management0 | - |
+
+#### NTP Device Configuration
+
+```eos
+!
+ntp server vrf MGMT 192.168.0.2 iburst local-interface Management0
 ```
 
 ### Management API HTTP
